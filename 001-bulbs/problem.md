@@ -2,7 +2,7 @@
 # Problem description
 
 Your task is to determine how many times bulbs were shining.
-You'll be given a collection of integers, e.g.:
+You'll be given a collection of integers from 1 to N, e.g.:
 
 `const A = [1,3,4,5,2]`
 
