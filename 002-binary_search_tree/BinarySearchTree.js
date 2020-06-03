@@ -41,10 +41,48 @@ class BinarySearchTree {
         }
     }
 
-    // remove(key) 
+    remove(key) {
+        this.root = this.removeNode(this.root, key)
+    }
+
+    removeNode(rootNode, key) {
+        if (rootNode === null) {
+            return;
+        } else if (key < rootNode.root) {
+            rootNode.left = this.removeNode(rootNode.left, key);
+            return rootNode;
+        } else if (key > rootNode.root) {
+            rootNode.right = this.removeNode(rootNode.right, key)
+            return rootNode;
+        } else {
+            if (rootNode.left === null && rootNode.right === null) {
+                rootNode = null;
+                return rootNode;
+            } else if (rootNode.left === null) {
+                rootNode = rootNode.right
+                return rootNode;
+            } else if (rootNode.right === null) {
+                rootNode = rootNode.left;
+                return rootNode;
+            } else {
+                // TODO: rootNode has both left and right branches !== null
+            }
+        }
+    }
                   
   
-    // Helper function 
+    // Helper function
+    findNode(key, node) {
+        if (node.root === null) {
+            return;
+        } else if (node.root === key) {
+            return node;
+        } else if (key < node.root) {
+            return findNode(key, node.left);
+        } else {
+            return findNode(key, node.right);
+        }
+    }
     // findMinNode() 
     // getRootNode() 
     // inorder(node) 
